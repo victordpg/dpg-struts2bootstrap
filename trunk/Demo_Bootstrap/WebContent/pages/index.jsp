@@ -38,7 +38,6 @@
       <script src="../bootstrap/js/html5shiv.js"></script>
     <![endif]-->
 	<sj:head/>
-	<script src="../bootstrap/js/bootstrap.js"></script>
   </head>
 
   <body>
@@ -94,9 +93,14 @@
 				</div>
 				<div>
 					<s:form>
-						<sjr:ckeditor id="richtextEditor" name="echo" width="800"
-							height="400" uploads="true" resizable="true"
-							onFocusTopics="focusRichtext" onBlurTopics="blurRichtext"
+						<sjr:ckeditor 
+						    id="richtextEditor" 
+							cssClass="richTextClass" 
+							name="echo" 
+							height="400" 
+							uploads="true"
+							onFocusTopics="focusRichtext" 
+							onBlurTopics="blurRichtext"
 							onChangeTopics="highlightRichtext"
 							value="Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia mauris vel est. Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." />
 					</s:form>
