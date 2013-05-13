@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags" %>
-<%@ taglib prefix="sjr" uri="/struts-jquery-richtext-tags" %>
+<%@ taglib prefix="sjg" uri="/struts-jquery-grid-tags" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -113,17 +113,27 @@
 				</div>
 				<p/>
 				<div>
-					<form class="form-horizontal">
-						<sjr:ckeditor 
-						    id="richtextEditor" 
-							name="echo" 
-					        height="600"
-							uploads="true"
-							onFocusTopics="focusRichtext" 
-							onBlurTopics="blurRichtext"
-							onChangeTopics="highlightRichtext"
-							value="Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia mauris vel est. Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." />
-					</form>
+					<s:url var="remoteurl" action="GridBox" namespace="/test" ></s:url>
+					<sjg:grid id="gridbox"
+						caption="" 
+						dataType="json"
+						href="%{remoteurl}" 
+						pager="true" 
+						navigator="true"
+						navigatorSearchOptions="{sopt:['eq','ne','lt','gt']}"
+						gridModel="gridModel" 
+						rowList="10,15,20,25,50" 
+						rowNum="20"
+						onSelectRowTopics="rowselect"
+						viewrecords="true"
+						width="800" 
+						shrinkToFit="false">
+						<sjg:gridColumn name="sender" index="sender" title="发件人" width="100" editable="false" sortable="true" search="true" searchoptions="{sopt:['eq','ne','lt','gt']}" />
+						<sjg:gridColumn name="receiver" index="receiver" title="收件人" width="100" sortable="true" search="true" searchoptions="{sopt:['eq','ne','lt','gt']}" />
+						<sjg:gridColumn name="subject" index="subject" title="邮主题" width="200" sortable="true" />
+						<sjg:gridColumn name="attachment" index="attachment" title="附件" width="100"/>
+						<sjg:gridColumn name="timer" index="timer" title="时间" sortable="true" />
+					</sjg:grid>
 				</div>
 			</div>
 		</div>
