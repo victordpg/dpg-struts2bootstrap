@@ -11,6 +11,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+	<sj:head/>
+
     <!-- Le styles -->
     <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
@@ -40,7 +42,6 @@
     <!--[if lt IE 9]>
       <script src="../bootstrap/js/html5shiv.js"></script>
     <![endif]-->
-	<sj:head/>
   </head>
 
   <body>
@@ -107,14 +108,16 @@
 					</div>
 					<div class="btn-group">
 						<button class="btn dropdown-toggle">转发</button>
-						<span></span>
-						<button class="btn dropdown-toggle">返回</button>
 					</div>
+					<div class="btn-group">
+						<button class="btn dropdown-toggle">返回</button>
+					</div>					
 				</div>
 				<p/>
 				<div>
 					<s:url var="remoteurl" action="GridBox" namespace="/test" ></s:url>
-					<sjg:grid id="gridbox"
+					<sjg:grid 
+						id="gridbox"
 						caption="" 
 						dataType="json"
 						href="%{remoteurl}" 
@@ -122,17 +125,17 @@
 						navigator="true"
 						navigatorSearchOptions="{sopt:['eq','ne','lt','gt']}"
 						gridModel="gridModel" 
-						rowList="10,15,20,25,50" 
+						rowList="10,20,50" 
 						rowNum="20"
 						onSelectRowTopics="rowselect"
 						viewrecords="true"
-						width="800" 
-						shrinkToFit="false">
+						width="800"
+						multiselect="true">
 						<sjg:gridColumn name="sender" index="sender" title="发件人" width="100" editable="false" sortable="true" search="true" searchoptions="{sopt:['eq','ne','lt','gt']}" />
-						<sjg:gridColumn name="receiver" index="receiver" title="收件人" width="100" sortable="true" search="true" searchoptions="{sopt:['eq','ne','lt','gt']}" />
-						<sjg:gridColumn name="subject" index="subject" title="邮主题" width="200" sortable="true" />
+						<sjg:gridColumn name="reciever" index="reciever" title="收件人" width="100" sortable="true" search="true" searchoptions="{sopt:['eq','ne','lt','gt']}" />
+						<sjg:gridColumn name="subject" index="subject" title="邮主题" width="400" sortable="true" />
 						<sjg:gridColumn name="attachment" index="attachment" title="附件" width="100"/>
-						<sjg:gridColumn name="timer" index="timer" title="时间" sortable="true" />
+						<sjg:gridColumn name="timer" index="timer" title="时间" width="100" sortable="true" />
 					</sjg:grid>
 				</div>
 			</div>
